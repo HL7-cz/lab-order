@@ -14,12 +14,12 @@ Description: "Fiktivní pacientka pro účel příkladu"
   * value = "1122334455"
 * identifier[+]
   * system = "http://hl7.org/fhir/sid/passport-CZE"
-  * value = "CZE9876543"
+  * value = "98765432"
   * use = #official
   * type = $v2-0203#PPN
 * identifier[+]
   * system = "http://hl7.org/fhir/sid/passport-FRA"
-  * value = "FRA1234567"
+  * value = "12345678"
   * use = #official
   * type = $v2-0203#PPN
 

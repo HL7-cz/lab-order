@@ -188,10 +188,10 @@ Usage: #definition
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage"
 * group[=].element[+].code = #Header.payer
 * group[=].element[=].display = "A.1.3 - Health insurance and payment information - Health insurance information is not always required, however, in some jurisdictions, the insurance number is also used as the patient identifier. It is necessary not just for identification but also forms access to funding for care."
-* group[=].element[=].target.code = #Composition.section:order.insurance		
+* group[=].element[=].target.code = #Composition.section:serviceRequest.insurance		
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #relatedto					
-* group[=].element[=].target.comment = "Composition.section:order.entry.ofType(CZ_ImagingInformationAboutOrder).insurance.ofType(CZ_Coverage)"
+* group[=].element[=].target.comment = "Composition.section:serviceRequest.entry.ofType(CZ_ServiceRequest).insurance.ofType(CZ_Coverage)"
 * group[=].element[+].code = #Header.payer.insuranceCode
 * group[=].element[=].display = "A.1.3.1 - Health insurance code"
 * group[=].element[=].target.code = #CZ_Coverage.payor.identifier
@@ -211,10 +211,10 @@ Usage: #definition
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage"
 * group[=].element[+].code = #Header.coverage
 * group[=].element[=].display = "A.1.4 - Information about coverage"
-* group[=].element[=].target.code = #Composition.section:Coverage					
+* group[=].element[=].target.code = #Composition.section:coverage					
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #relatedto					
-* group[=].element[=].target.comment = "Composition.section:Coverage.entry.ofType(CZ_Coverage)"
+* group[=].element[=].target.comment = "Composition.section:coverage.entry.ofType(CZ_Coverage)"
 * group[=].element[+].code = #Header.coverage.method
 * group[=].element[=].display = "A.1.4.1 - Coverage method"
 * group[=].element[=].target.code = #CZ_Coverage.type					
@@ -228,7 +228,7 @@ Usage: #definition
 * group[+].source = "https://hl7.cz/fhir/lab-order/StructureDefinition/AuthorCz"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerRole-core"
 * group[=].element[+].code = #Header.author
-* group[=].element[=].display = "A.1.5 - Author (by whom the Imaging Order was/were authored)"
+* group[=].element[=].display = "A.1.5 - Author (by whom the Laboratory Order was/were authored)"
 * group[=].element[=].target.code = #Composition.author
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent					
@@ -251,7 +251,7 @@ Usage: #definition
 * group[=].element[=].target.comment = "ID Organization"
 * group[=].element[+].code = #Header.author.organization
 * group[=].element[=].display = "A.1.5.4 - Author organisation"
-* group[=].element[=].target.code = #Z_PractitionerRoleCore.organization.name					
+* group[=].element[=].target.code = #CZ_PractitionerRoleCore.organization.name					
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent		
 * group[+].source = "https://hl7.cz/fhir/lab-order/StructureDefinition/AuthorCz"
@@ -265,7 +265,7 @@ Usage: #definition
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerRole-core"					
 * group[=].element[+].code = #Header.requestedPerformer
 * group[=].element[=].display = "A.1.6 - Requested Performer"
-* group[=].element[=].target.code = #CZ_ImagingInformationAboutOrder.performer
+* group[=].element[=].target.code = #CZ_ServiceRequest.performer
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent					
 * group[=].element[+].code = #Header.requestedPerformer.identifier
@@ -285,7 +285,7 @@ Usage: #definition
 * group[=].element[=].target.equivalence = #equivalent					
 * group[=].element[+].code = #Header.requestedPerformer.organization
 * group[=].element[=].display = "A.1.6.4 - Requested Performer organisation"
-* group[=].element[=].target.code = #CZ_PractitionerCore.organization.name					
+* group[=].element[=].target.code = #CZ_PractitionerRoleCore.organization.name					
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent	
 * group[+].source = "https://hl7.cz/fhir/lab-order/StructureDefinition/AdditionalRecipientCz"
@@ -312,7 +312,7 @@ Usage: #definition
 * group[=].element[=].target.equivalence = #equivalent					
 * group[=].element[+].code = #Header.additionalRecipient.organization
 * group[=].element[=].display = "A.1.7.4 - Additional Recipient organisation"
-* group[=].element[=].target.code = #CZ_PractitionerRoleCore.organization.name					
+* group[=].element[=].target.code = #CCZ_PractitionerRoleCore.organization.name					
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent					
 * group[+].source = "https://hl7.cz/fhir/lab-order/StructureDefinition/DocumentMetadataCz"
@@ -325,7 +325,7 @@ Usage: #definition
 * group[=].element[=].target.comment = "If it is the identifier of a particular order instance"
 * group[=].element[+].code = #Header.documentMetadata.dateTime
 * group[=].element[=].display = "A.1.8.4 - Order date and time"
-* group[=].element[=].target.code = #Bundle.timeStamp
+* group[=].element[=].target.code = #Bundle.timestamp
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent					
 * group[=].element[=].target.comment = "If it is when this particular version of  this order has been assembled into a Bundle."

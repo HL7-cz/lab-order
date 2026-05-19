@@ -2,13 +2,4 @@
 
 This page lists HL7 FHIR logical models used to represent the laboratory order.
 
-
-{% sql {
-  "query" : "SELECT name AS Name, title AS Title, Type, Description, Web FROM Resources WHERE Type='StructureDefinition' AND Name LIKE 'LogEn%' ORDER BY Title",
-  "class" : "lines",
-  "columns" : [
-    { "name" : "Title"      , "type" : "link"     , "source" : "Name", "target" : "Web"},
-    { "name" : "Name"       , "type" : "markdown" , "source" : "Title" },
-    { "name" : "Description", "type" : "markdown" , "source" : "Description"}
-  ]
-} %}
+The mapping pages in [Header-map-en.html](Header-map-en.html), [Body-map-en.html](Body-map-en.html) and [Attachment-map-en.html](Attachment-map-en.html) provide an overview of how these logical model sections map to the FHIR profiles used in this implementation guide.

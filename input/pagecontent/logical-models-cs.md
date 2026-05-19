@@ -2,12 +2,4 @@
 
 Tato stránka uvádí logické modely HL7 FHIR používané k reprezentaci Laboratorní žádanky.
 
-{% sql {
-  "query" : "SELECT name AS Name, title AS Title, Type, Description, Web FROM Resources WHERE Type='StructureDefinition' AND Name LIKE 'LogCz%' ORDER BY Title",
-  "class" : "lines",
-  "columns" : [
-    { "name" : "Title"      , "type" : "link"     , "source" : "Name", "target" : "Web"},
-    { "name" : "Name"       , "type" : "markdown" , "source" : "Title" },
-    { "name" : "Description", "type" : "markdown" , "source" : "Description"}
-  ]
-} %}
+Mapování mezi logickými modely Laboratorní žádanky a použitými FHIR profily je popsáno na stránkách [Header-map-cs.html](Header-map-cs.html), [Body-map-cs.html](Body-map-cs.html) a [Attachment-map-cs.html](Attachment-map-cs.html).

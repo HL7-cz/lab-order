@@ -26,8 +26,8 @@ Description: "Czech Lab Order - example of a bundle"
 * entry[practitionerRole].fullUrl = "urn:uuid:cc8e6b12-2b99-48cf-9c3c-3c8d74805821"
 * entry[practitionerRole].resource = practitionerRoleSlofak
 
-* entry[clinicalQuestion].fullUrl = "urn:uuid:3e2c9ab5-fe20-4e52-8bf9-3ff7a384c185"
-* entry[clinicalQuestion].resource = VirelanClinicalQuestion 
+* entry[condition].fullUrl = "urn:uuid:3e2c9ab5-fe20-4e52-8bf9-3ff7a384c185"
+* entry[condition].resource = VirelanClinicalQuestion 
 
 * entry[specimen].fullUrl = "urn:uuid:c2987da2-94cb-4a6c-bedf-2cb0e817b7dc"
 * entry[specimen].resource = VirelanSpecimen
@@ -45,6 +45,7 @@ Usage: #inline
 Title: "CZ Lab Order Composition Example"
 Description: "Example Composition for a Laboratory Order in CZ"
 
+* meta.profile = "https://hl7.cz/fhir/lab-order/StructureDefinition/cz-CompositionLabOrder"
 * identifier.system = "http://hospital.example.org/lab-orders"
 * identifier.value = "ORDER-12345"
 
@@ -62,7 +63,7 @@ Description: "Example Composition for a Laboratory Order in CZ"
 
 * section[serviceRequest]
   * title = "Order Information"
-  * code = $loinc#30954-2 	"Relevant diagnostic tests/laboratory data Narrative"
+  * code = $loinc#30954-2 	"Relevant diagnostic tests/laboratory data note"
   * entry[0] = Reference(urn:uuid:eb582e83-9558-4578-b332-f009308699bd)
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Order information</div>" 
   * text.status = #generated
@@ -170,6 +171,7 @@ Description: "Role MUDr. Záboje Šlofáka"
 * practitioner = Reference(urn:uuid:7e243f25-5292-4f5a-9a8c-2a2a9a3e8f7f)
 * organization = Reference(urn:uuid:fd0cbd93-d65e-47b2-86c9-792268a2c1ff)
 * code[NRZP_POVOLANI] = https://ncez.mzcr.cz/terminology/CodeSystem/nrzp-povolani#L00 "Lékař"
+* specialty = $sct#419772000 "Family practice"
 * active = true
 * telecom[+].system = #phone
 * telecom[=].value = "+420775111222"
@@ -187,6 +189,8 @@ Usage: #inline
 * identifier[=].value = "12345678"
 * identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/krpzs"
 * identifier[=].value = "ICZ123456"
+* identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/icp"
+* identifier[=].value = "99887766"
 
 * active = true
 * name = "Nemocnice Horní Dolní"
@@ -217,11 +221,12 @@ Title: "Organization - Healthcare insurance company"
 
 
 Instance: VirelanClinicalQuestion
-InstanceOf: CZ_ClinicalQuestion
+InstanceOf: CZ_ConditionClinicalQuestion
 Usage: #inline
 Title: "CZ Clinical Question Example"
 Description: "Example Clinical Question for Laboratory Order"
 * id = "3e2c9ab5-fe20-4e52-8bf9-3ff7a384c185"
+* meta.profile = "https://hl7.cz/fhir/lab-order/StructureDefinition/cz-conditionClinicalQuestion"
 * identifier.system = "http://hospital.example.org/clinical-questions"
 * identifier.value = "CQ-98765"
 * subject = Reference(urn:uuid:11af8e2a-3e10-426e-b80f-4c9f9c7de3c9)

@@ -117,6 +117,10 @@ pages:
     title: Workflow  
   workflow-cs.md:
     title: Workflow 
+  implementation-notes-en.md:
+    title: Implementation notes
+  implementation-notes-cs.md:
+    title: Poznámky k implementaci
 #  artifacts-en.xml:
 #    title: Artifacts
 # profiles-and-extensions.md:
@@ -126,18 +130,18 @@ pages:
   downloads-cs.md:
     title: Download
 # === MAP ====
-#  Header-map-en.html:
-#    title: Header Model map
-#  Header-map-cs.html:
-#    title: Mapování logického modelu hlavičky
-#  Body-map-en.html:
-#    title: Body Model map
-#  Body-map-cs.html:
-#    title: Mapování logického modelu těla
-#  Attachment-map.html:
-#    title: Presented Form and Media Model map
-#  Attachment-map-cs.html:
-#    title: Mapování logického modelu vizuální podoby dokumentu a medií
+  Header-map-en.html:
+    title: Header Model map
+  Header-map-cs.html:
+    title: Mapování logického modelu hlavičky
+  Body-map-en.html:
+    title: Body Model map
+  Body-map-cs.html:
+    title: Mapování logického modelu těla
+  Attachment-map-en.html:
+    title: Presented Form and Attachment Model map
+  Attachment-map-cs.html:
+    title: Mapování logického modelu vizuální podoby dokumentu a příloh
 #
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide
@@ -229,6 +233,8 @@ menu:
   Implementation:
     Mapping to profiles (en): model-map-en.html
     Mapping to profiles (cs): model-map-cs.html
+    Implementation notes (en): implementation-notes-en.html
+    Implementation notes (cs): implementation-notes-cs.html
     Examples (en): examples-en.html
     Examples (cs): examples-cs.html
     Obligations (en): obligations-en.html
@@ -328,31 +334,9 @@ instanceOptions:
 #     - StructureDefinition/bark-control
 #     - StructureDefinition/bee-sting
 #
-groups:
-  czech-logical-model:
-    name:  Czech logical model (Informative)
-    description: Logical model in czech language. Informative for this version of the guide.
-    resources:
-      - StructureDefinition/LogAdditionalRecipientCz
-      - StructureDefinition/LogLabAppointmentCz
-      - StructureDefinition/LogAttachmentsCz
-      - StructureDefinition/LogAuthorCz
-      - StructureDefinition/LogClinicalEventCz
-      - StructureDefinition/LogClinicalInformationCz
-      - StructureDefinition/LogCoverageBodyCz
-      - StructureDefinition/LogCoverageOrderCz
-      - StructureDefinition/LogDigitalSignatureCz
-      - StructureDefinition/LogDocumentMetadataCz
-      - StructureDefinition/LogLabOrderBodyCz
-      - StructureDefinition/LogLabOrderCz
-      - StructureDefinition/LogLabOrderHeaderCz
-      - StructureDefinition/LogLabOrderDataElementsCz
-      - StructureDefinition/LogLabOrderInformationCz
-      - StructureDefinition/LogPayerCz
-      - StructureDefinition/LogPresentedFormCz
-      - StructureDefinition/LogRequestedPerformerCz
-      - StructureDefinition/LogSpecimenInformationCz
-      - StructureDefinition/LogSubjectCz
+# Logical models live in input/fsh/models and input/fsh/models-cz and are published as generated StructureDefinitions.
+# ConceptMap FSH sources are kept in input/archive/maps and are not published as ConceptMap resources;
+# they only serve as the source for the generated mapping pages (Header-map, Body-map, Attachment-map).
 
 #
 # The ImplementationGuide resource defines several other properties

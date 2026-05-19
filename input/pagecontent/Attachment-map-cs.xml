@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <title>Přílohy -&gt; FHIR profily (CZ LAB-ORDER)</title>
+
+    <style type="text/css">
+
+      .model-map-block { margin: 0 0 1rem 0; }
+
+      .callout-wrapper {
+        border: 1px solid #c9cdd3;
+        border-radius: 10px;
+        background: #f2f4f7;
+        padding: 10px 12px;
+      }
+
+      .callout-box { color: #222; }
+
+      .table-wrap {
+        border: 1px solid #c9cdd3;
+        border-radius: 10px;
+        background: #f7f8fa;
+        padding: 10px;
+        margin: 0 0 1rem 0;
+      }
+
+      .table-wrap table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        background: #fff;
+      }
+
+      .table-wrap th,
+      .table-wrap td {
+        border: 1px solid #bfc5cc;
+        padding: 6px 8px;
+        vertical-align: top;
+        word-wrap: break-word;
+      }
+
+      .table-wrap caption {
+        text-align: left;
+        font-weight: bold;
+        margin: 0 0 6px 0;
+      }
+
+      .src-head { background: #2f63b7; color: #fff; }
+      .relhead { background: #7b389f; color: #fff; }
+      .tgt-head { background: #cf003e; color: #fff; }
+
+      .src-sub { background: #97abd7; }
+      .relsub { background: #c9bed1; }
+      .tgt-sub { background: #cf8398; }
+
+    </style>
+  </head>
+
+  <body>
+
+    <div class="model-map-block">
+      <div class="callout-wrapper">
+        <div class="callout-box">
+                    <strong>Probíhající sladění:</strong>
+                    Logické modely Xt-EHR jsou průběžně revidovány a dále zpřesňovány. Aktualizace z Xt-EHR budou postupně promítány do této implementační příručky, aby byla zachována návaznost na vyvíjející se specifikace EHDS.
+        </div>
+      </div>
+    </div>
+
+    <h3>Přílohy -&gt; FHIR profily (CZ LAB-ORDER)</h3>
+
+    <p>
+      Tato stránka vysvětluje, jak jsou konceptuální prvky logického modelu příloh a prezentované formy vyjádřeny v odpovídajících FHIR profilech použitých v této implementační příručce.
+    </p>
+
+    <h4 id="model">Přehled modelu</h4>
+
+    <p>{% include Attachment-map-cs.svg %}</p>
+
+    <div class="table-wrap">
+
+      <strong>Kontext mapování</strong>
+
+      <ul>
+        <li>
+          <strong>Zdrojový logický model:</strong>
+          <a href="StructureDefinition-PresentedFormCz.html">PresentedFormCz</a>
+        </li>
+        <li>
+          <strong>Hlavní cílový profil:</strong>
+          <a href="StructureDefinition-cz-attachment.html">cz-attachment</a>
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="table-wrap">
+
+      <table summary="Přílohy -&gt; FHIR profily (CZ LAB-ORDER)">
+
+        <caption>Přílohy -&gt; FHIR profily (CZ LAB-ORDER)</caption>
+
+        <thead>
+
+          <tr>
+            <th colspan="2" class="src-head">Přílohy (Logický model)</th>
+            <th class="relhead">Vztah</th>
+                        <th colspan="4" class="tgt-head">FHIR cíl</th>
+          </tr>
+
+          <tr>
+            <th class="src-sub">Prvek</th>
+            <th class="src-sub">Popis</th>
+            <th class="relsub">Vztah</th>
+            <th class="tgt-sub">Zdroj/Profil</th>
+            <th class="tgt-sub">Prvek</th>
+            <th class="tgt-sub">Popis</th>
+            <th class="tgt-sub">Poznámky</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>PresentedForm</td>
+            <td>A.3 - Presented Form</td>
+                        <td>ekvivalentní</td>
+            <td>CZ_Attachment (cz-attachment)</td>
+            <td>CZ_Attachment.content</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>PresentedForm.contentType</td>
+            <td>A.3.1 - Content type of presented form</td>
+                        <td>ekvivalentní</td>
+            <td>content (cz-attachment)</td>
+            <td>content.contentType</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>PresentedForm.language</td>
+            <td>A.3.2 - Language of presented form</td>
+                        <td>ekvivalentní</td>
+            <td>content (cz-attachment)</td>
+            <td>content.language</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>PresentedForm.data</td>
+            <td>A.3.3 - Data of presented form</td>
+                        <td>ekvivalentní</td>
+            <td>content (cz-attachment)</td>
+            <td>content.data</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>PresentedForm.url</td>
+            <td>A.3.4 - URL of presented form</td>
+                        <td>ekvivalentní</td>
+            <td>content (cz-attachment)</td>
+            <td>content.url</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>PresentedForm.title</td>
+            <td>A.3.5 - Title of presented form</td>
+                        <td>ekvivalentní</td>
+            <td>content (cz-attachment)</td>
+            <td>content.title</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>PresentedForm.creation</td>
+            <td>A.3.6 - Date and time of creation</td>
+                        <td>ekvivalentní</td>
+            <td>content (cz-attachment)</td>
+            <td>content.creation</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>AttachmentsCz</td>
+            <td>A.4 - Additional attachments</td>
+                        <td>ekvivalentní</td>
+            <td>CZ_Attachment (cz-attachment)</td>
+            <td>CZ_Attachment.content</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>AttachmentsCz.contentType</td>
+            <td>A.4.1 - Content type of additional attachments</td>
+                        <td>ekvivalentní</td>
+            <td>content (cz-attachment)</td>
+            <td>content.contentType</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>AttachmentsCz.language</td>
+            <td>A.4.2 - Language of additional attachments</td>
+                        <td>ekvivalentní</td>
+            <td>content (cz-attachment)</td>
+            <td>content.language</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>AttachmentsCz.data</td>
+            <td>A.4.3 - Data of additional attachments</td>
+                        <td>ekvivalentní</td>
+            <td>content (cz-attachment)</td>
+            <td>content.data</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>AttachmentsCz.url</td>
+            <td>A.4.4 - URL of additional attachments</td>
+                        <td>ekvivalentní</td>
+            <td>content (cz-attachment)</td>
+            <td>content.url</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>AttachmentsCz.title</td>
+            <td>A.4.5 - Title of additional attachments</td>
+                        <td>ekvivalentní</td>
+            <td>content (cz-attachment)</td>
+            <td>content.title</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>AttachmentsCz.creation</td>
+            <td>A.4.6 - Date and time of creation</td>
+                        <td>ekvivalentní</td>
+            <td>content (cz-attachment)</td>
+            <td>content.creation</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </body>
+
+</div>

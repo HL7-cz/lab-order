@@ -92,7 +92,6 @@ Description: "Clinical document used to represent a Laboratory Order for the sco
     composition 1..1 and
     patient 1..1 and
     serviceRequest 0..* and
-    clinicalQuestion 1..* and
     appointment 0..1 and
     specimen 0..* and
     practitioner 0..* and
@@ -108,7 +107,6 @@ Description: "Clinical document used to represent a Laboratory Order for the sco
 * entry[composition].resource only CZ_CompositionLabOrder
 * entry[patient].resource only CZ_PatientCore or CZ_PatientAnimal
 * entry[serviceRequest].resource only CZ_ServiceRequest
-* entry[clinicalQuestion].resource only CZ_ClinicalQuestion
 * entry[appointment].resource only CZ_Appointment
 * entry[specimen].resource only CZ_Specimen
 * entry[practitioner].resource only CZ_PractitionerCore

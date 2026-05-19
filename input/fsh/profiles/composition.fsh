@@ -88,7 +88,7 @@ Description: "Clinical document used to represent a Laboratory Order for the sco
   * ^definition = "This section holds information related to the order for the laboratory study."
   * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
   * ^extension[0].valueString = "Section"
-  * code = $loinc#30954-2 	"Relevant diagnostic tests/laboratory data Narrative"
+  * code = $loinc#30954-2 	"Relevant diagnostic tests/laboratory data note"
   * entry 0..
   * entry only Reference(CZ_ServiceRequest) 
 * section[serviceRequest].author only Reference(CZ_PractitionerCore or CZ_PractitionerRoleCore or Device or CZ_PatientCore or CZ_RelatedPersonCore or CZ_OrganizationCore)
@@ -101,7 +101,7 @@ Description: "Clinical document used to represent a Laboratory Order for the sco
   * ^extension[0].valueString = "Section"
   * code = $loinc#42349-1 	"Reason for referral (narrative)"
   * entry 1..
-  * entry only Reference(CZ_ClinicalQuestion) 
+  * entry only Reference(CZ_ConditionClinicalQuestion) 
 * section[clinicalQuestion].author only Reference(CZ_PractitionerCore or CZ_PractitionerRoleCore or Device or CZ_PatientCore or CZ_RelatedPersonCore or CZ_OrganizationCore)
 
 /////////////////////////////////// COVERAGE SECTION ////////////////////////////////////////////
