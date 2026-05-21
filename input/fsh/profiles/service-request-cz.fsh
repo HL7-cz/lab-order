@@ -22,7 +22,7 @@ Description: "ServiceRequest used to represent a Laboratory Order for the scope 
 
 * performer only Reference(CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_OrganizationCore or CareTeam or HealthcareService or CZ_PatientCore or CZ_RelatedPersonCore or Device)
 * performer.type from $sct-device-type
-* requester only Reference(CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_OrganizationCore or CZ_PatientCore or CZ_RelatedPersonCore or Device)
+* requester only Reference(CZ_PractitionerCore or OrderPractitionerRoleCz or CZ_OrganizationCore or CZ_PatientCore or CZ_RelatedPersonCore or Device)
 * text 1..
 * supportingInfo 0..*
 * supportingInfo only Reference(CZ_MedicationStatement or Condition or CZ_AllergyIntolerance or CZ_MedicalDevice or CZ_ObservationLab)
