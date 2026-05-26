@@ -39,7 +39,7 @@ Description: "Clinical document used to represent a Laboratory Order for the sco
 //  * insert SetPopulateIfKnown
 
 * author
-* author only Reference(CZ_PractitionerCore or CZ_DeviceObserver or CZ_PractitionerRoleCore)
+* author only Reference(CZ_PractitionerCore or CZ_DeviceObserver or OrderPractitionerRoleCz)
   * ^short = "Who and/or what authored the Laboratory order"
 
 * date

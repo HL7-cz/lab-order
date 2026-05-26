@@ -110,7 +110,7 @@ Description: "Clinical document used to represent a Laboratory Order for the sco
 * entry[appointment].resource only CZ_Appointment
 * entry[specimen].resource only CZ_Specimen
 * entry[practitioner].resource only CZ_PractitionerCore
-* entry[practitionerRole].resource only CZ_PractitionerRoleCore
+* entry[practitionerRole].resource only CZ_PractitionerRoleCore or OrderPractitionerRoleCz
 * entry[organization].resource only CZ_OrganizationCore
 * entry[coverage].resource only CZ_Coverage
 * entry[medication].resource only CZ_MedicationStatement  

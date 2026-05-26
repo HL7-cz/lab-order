@@ -164,14 +164,14 @@ Description: "Virtuální lékař Záboj Šlofák"
 
 
 Instance: practitionerRoleSlofak
-InstanceOf: CZ_PractitionerRoleCore
+InstanceOf: OrderPractitionerRoleCz
 Usage: #inline
 Description: "Role MUDr. Záboje Šlofáka"
 * id = "cc8e6b12-2b99-48cf-9c3c-3c8d74805821"
 * practitioner = Reference(urn:uuid:7e243f25-5292-4f5a-9a8c-2a2a9a3e8f7f)
 * organization = Reference(urn:uuid:fd0cbd93-d65e-47b2-86c9-792268a2c1ff)
 * code[NRZP_POVOLANI] = https://ncez.mzcr.cz/terminology/CodeSystem/nrzp-povolani#L00 "Lékař"
-* specialty = $sct#419772000 "Family practice"
+* specialty.coding[vzpOdbornost] = urn:oid:1.2.203.7898.1.4#001 "Všeobecné praktické lékařství"
 * active = true
 * telecom[+].system = #phone
 * telecom[=].value = "+420775111222"
