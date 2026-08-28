@@ -117,14 +117,14 @@ Description: "Virtuální lékař MUDr. Erazim Vyčichlo"
 
 
 Instance: practitionerRoleVycichlo
-InstanceOf: OrderPractitionerRoleCz
+InstanceOf: CZ_PractitionerRoleOrder
 Usage: #example
 Description: "Role MUDr. Erazima Vyčichla (žádající lékař)"
 * id = "99988877-aaaa-4000-bbbb-cceeddccbbaa"
 * practitioner = Reference(practitionerVycichlo)
 * organization = Reference(NemocniceZlabekDolni)
 * code[NRZP_POVOLANI] = https://ncez.mzcr.cz/terminology/CodeSystem/nrzp-povolani#L00 "Lékař"
-* specialty.coding[vzpOdbornost] = urn:oid:1.2.203.7898.1.4#001 "Všeobecné praktické lékařství"
+* specialty[VZP-SMLUVNI-ODBORNOST].coding = $vzp-odbornost#001 "Všeobecné praktické lékařství"
 * active = true
 * telecom[+].system = #email
 * telecom[=].value = "erazim.vycichlo@zlabekdolni.cz"

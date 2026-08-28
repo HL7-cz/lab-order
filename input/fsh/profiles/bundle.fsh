@@ -107,14 +107,14 @@ Description: "Clinical document used to represent a Laboratory Order for the sco
 * entry[composition].resource only CZ_CompositionLabOrder
 * entry[patient].resource only CZ_PatientCore or CZ_PatientAnimal
 * entry[serviceRequest].resource only CZ_ServiceRequest
-* entry[appointment].resource only CZ_Appointment
+* entry[appointment].resource only CZ_AppointmentCore
 * entry[specimen].resource only CZ_Specimen
 * entry[practitioner].resource only CZ_PractitionerCore
-* entry[practitionerRole].resource only CZ_PractitionerRoleCore or OrderPractitionerRoleCz
+* entry[practitionerRole].resource only CZ_PractitionerRoleCore //or OrderPractitionerRoleCz
 * entry[organization].resource only CZ_OrganizationCore
 * entry[coverage].resource only CZ_Coverage
-* entry[medication].resource only CZ_MedicationStatement  
-* entry[condition].resource only CZ_ConditionLab
+* entry[medication].resource only CZ_MedicationStatementCore
+* entry[condition].resource only CZ_ConditionCore
 * entry[allergyIntolerance].resource only CZ_AllergyIntolerance
 * entry[observation].resource only CZ_ObservationLab
 * entry[attachment].resource only CZ_Attachment

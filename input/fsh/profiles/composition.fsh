@@ -15,7 +15,7 @@ Description: "Clinical document used to represent a Laboratory Order for the sco
 * insert SetFmmandStatusRule ( 0, draft )
 
 * meta
-  * security 0..* MS
+  * security 0..* //MS
 
 * identifier
   * ^short = "Order identifier"
@@ -26,28 +26,37 @@ Description: "Clinical document used to represent a Laboratory Order for the sco
   * ^short = "Status of the Order"
   * ^comment = ""
 
-* subject 1..1 
+* subject 1..1
 * subject only Reference(CZ_PatientCore or CZ_PatientAnimal or Group or CZ_LocationCore or Device or CZ_MedicalDevice)
 
-* custodian 
+* custodian
 * custodian only Reference(CZ_OrganizationCore)
   * ^short = "Organization that manages the Laboratory Order"
 
-* encounter 
-* encounter only Reference(CZ_Encounter)
+* encounter
+* encounter only Reference(CZ_EncounterCore)
   * ^short = "Context that defines the Laboratory Order"
 //  * insert SetPopulateIfKnown
 
 * author
-* author only Reference(CZ_PractitionerCore or CZ_DeviceObserver or OrderPractitionerRoleCz)
-  * ^short = "Who and/or what authored the Laboratory order"
+//* author only Reference(CZ_PractitionerCore or CZ_DeviceObserver or OrderPractitionerRoleCz)
+//  * ^short = "Who and/or what authored the Laboratory order"
+
+* author only Reference(CZ_PractitionerRoleOrder)
+  * ^short = "Who authored the Laboratory order"
 
 * date
   * ^short = "Date the order was created."
 
 * type from CZ_TypeClinicalEventVs
 
-* category from $DocumentClassValueSet
+// * category from $DocumentClassValueSet
+* category
+  * insert SliceElement( #value, $this )
+* category contains documentCategory 1..1
+* category[documentCategory] from $DocumentCategory (required)
+* category[documentCategory] = $loinc#57133-1   // Žádanky
+
 
 * extension contains DocumentPresentedForm named presentedForm 0..*
 * extension[presentedForm] ^short = "Presented form"
@@ -88,9 +97,10 @@ Description: "Clinical document used to represent a Laboratory Order for the sco
   * ^definition = "This section holds information related to the order for the laboratory study."
   * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
   * ^extension[0].valueString = "Section"
-  * code = $loinc#30954-2 	"Relevant diagnostic tests/laboratory data note"
+  * code = $loinc#46209-3 //"Provider orders"
+  // * code = $loinc#30954-2 	"Relevant diagnostic tests/laboratory data note"
   * entry 0..
-  * entry only Reference(CZ_ServiceRequest) 
+  * entry only Reference(CZ_ServiceRequest)
 * section[serviceRequest].author only Reference(CZ_PractitionerCore or CZ_PractitionerRoleCore or Device or CZ_PatientCore or CZ_RelatedPersonCore or CZ_OrganizationCore)
 
 ///////////////////////////////// Clinical question SECTION ///////////////////////////////////////
@@ -99,9 +109,10 @@ Description: "Clinical document used to represent a Laboratory Order for the sco
   * ^definition = "This section holds information about the clinical question that the laboratory method is intended to answer."
   * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
   * ^extension[0].valueString = "Section"
-  * code = $loinc#42349-1 	"Reason for referral (narrative)"
+  //* code = $loinc#42349-1 //	"Reason for referral (narrative)"
+  * code = $loinc#104720-8 // "Clinical indication Narrative"
   * entry 1..
-  * entry only Reference(CZ_ConditionClinicalQuestion) 
+  * entry only Reference(CZ_ConditionClinicalQuestion)
 * section[clinicalQuestion].author only Reference(CZ_PractitionerCore or CZ_PractitionerRoleCore or Device or CZ_PatientCore or CZ_RelatedPersonCore or CZ_OrganizationCore)
 
 /////////////////////////////////// COVERAGE SECTION ////////////////////////////////////////////
@@ -109,7 +120,7 @@ Description: "Clinical document used to represent a Laboratory Order for the sco
   * ^short = "Coverage type"
   * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
   * ^extension[0].valueString = "Section"
-  * code = $loinc#87520-3 "Coverage type"
+  * code = $loinc#87520-3 // "Coverage type"
   * entry 0..
   * entry only Reference(CZ_Coverage)
 * section[coverage].author only Reference(CZ_PractitionerCore or CZ_PractitionerRoleCore or Device or CZ_PatientCore or CZ_RelatedPersonCore or CZ_OrganizationCore)
@@ -119,9 +130,9 @@ Description: "Clinical document used to represent a Laboratory Order for the sco
   * ^short = "Appointment"
   * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
   * ^extension[0].valueString = "Section"
-  * code = $loinc#56446-8 "Appointment summary Document"
+  * code = $loinc#56446-8 //"Appointment summary Document"
   * entry 0..
-  * entry only Reference(CZ_Appointment)
+  * entry only Reference(CZ_AppointmentCore)
 * section[appointment].author only Reference(CZ_PractitionerCore or CZ_PractitionerRoleCore or Device or CZ_PatientCore or CZ_RelatedPersonCore or CZ_OrganizationCore)
 
  /////////////////////////////////// SUPPORTING INFORMATION SECTION /////////////////////////////////////////
@@ -129,9 +140,9 @@ Description: "Clinical document used to represent a Laboratory Order for the sco
   * ^short = "Supporting information"
   * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
   * ^extension[0].valueString = "Section"
-  * code = $loinc#55752-0 "Clinical information"
+  * code = $loinc#55752-0 //"Clinical information"
   * entry 0..
-  * entry only Reference(CZ_MedicationStatement or Condition)
+  * entry only Reference(CZ_MedicationStatementCore or CZ_ConditionCore)
 
 
  /////////////////////////////////////// ATTACHMENTS SECTION /////////////////////////////////////////
@@ -140,7 +151,7 @@ Description: "Clinical document used to represent a Laboratory Order for the sco
   * ^short = "Library of attachments"
   * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
   * ^extension[0].valueString = "Section"
-  * code = $loinc#77599-9 "Additional documentation"
+  * code = $loinc#77599-9 //"Additional documentation"
   * entry 0..
   * entry only Reference(CZ_Attachment)
 * section[attachments].author only Reference(CZ_PractitionerCore or CZ_PractitionerRoleCore or Device or CZ_PatientCore or CZ_RelatedPersonCore or CZ_OrganizationCore)

@@ -1,5 +1,5 @@
 Instance: AppointmentExample
-InstanceOf: CZ_Appointment
+InstanceOf: CZ_AppointmentCore
 Usage: #example
 Title: "Example Appointment – Blood Sample Collection"
 Description: "Appointment for laboratory sample collection"

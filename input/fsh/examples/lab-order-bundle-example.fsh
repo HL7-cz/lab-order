@@ -27,7 +27,7 @@ Description: "Czech Lab Order - example of a bundle"
 * entry[practitionerRole].resource = practitionerRoleSlofak
 
 * entry[condition].fullUrl = "urn:uuid:3e2c9ab5-fe20-4e52-8bf9-3ff7a384c185"
-* entry[condition].resource = VirelanClinicalQuestion 
+* entry[condition].resource = VirelanClinicalQuestion
 
 * entry[specimen].fullUrl = "urn:uuid:c2987da2-94cb-4a6c-bedf-2cb0e817b7dc"
 * entry[specimen].resource = VirelanSpecimen
@@ -63,27 +63,28 @@ Description: "Example Composition for a Laboratory Order in CZ"
 
 * section[serviceRequest]
   * title = "Order Information"
-  * code = $loinc#30954-2 	"Relevant diagnostic tests/laboratory data note"
+  * code = $loinc#46209-3
+  // * code = $loinc#30954-2 	"Relevant diagnostic tests/laboratory data note"
   * entry[0] = Reference(urn:uuid:eb582e83-9558-4578-b332-f009308699bd)
-  * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Order information</div>" 
+  * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Order information</div>"
   * text.status = #generated
 * section[clinicalQuestion]
   * title = "Clinical Question"
-  * code = $loinc#42349-1 	"Reason for referral (narrative)"
+  * code = $loinc#104720-8
   * entry[0] = Reference(urn:uuid:3e2c9ab5-fe20-4e52-8bf9-3ff7a384c185)
-  * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Clinical question</div>" 
+  * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Clinical question</div>"
   * text.status = #generated
 * section[coverage]
   * title = "Coverage"
-  * code = $loinc#87520-3 "Coverage type"
+  * code = $loinc#87520-3 //"Coverage type"
   * entry[0] = Reference(urn:uuid:8d08dca4-bf95-4b46-bcb4-e5b127aa2e30)
-  * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Coverage</div>" 
+  * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Coverage</div>"
   * text.status = #generated
 * section[attachments]
   * title = "Additional Documentation"
-  * code = $loinc#77599-9 "Additional documentation"
+  * code = $loinc#77599-9 //"Additional documentation"
   * entry[0] = Reference(urn:uuid:db28059c-64e2-48ab-9c41-ae0331e0e237)
-  * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Additional documentation</div>" 
+  * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Additional documentation</div>"
   * text.status = #generated
 
 
@@ -164,14 +165,14 @@ Description: "Virtuální lékař Záboj Šlofák"
 
 
 Instance: practitionerRoleSlofak
-InstanceOf: OrderPractitionerRoleCz
+InstanceOf: CZ_PractitionerRoleOrder
 Usage: #inline
 Description: "Role MUDr. Záboje Šlofáka"
 * id = "cc8e6b12-2b99-48cf-9c3c-3c8d74805821"
 * practitioner = Reference(urn:uuid:7e243f25-5292-4f5a-9a8c-2a2a9a3e8f7f)
 * organization = Reference(urn:uuid:fd0cbd93-d65e-47b2-86c9-792268a2c1ff)
 * code[NRZP_POVOLANI] = https://ncez.mzcr.cz/terminology/CodeSystem/nrzp-povolani#L00 "Lékař"
-* specialty.coding[vzpOdbornost] = urn:oid:1.2.203.7898.1.4#001 "Všeobecné praktické lékařství"
+* specialty[VZP-SMLUVNI-ODBORNOST].coding = $vzp-odbornost#001 "Všeobecné praktické lékařství"
 * active = true
 * telecom[+].system = #phone
 * telecom[=].value = "+420775111222"
@@ -241,23 +242,24 @@ Description: "Example of a laboratory ServiceRequest for blood glucose testing"
 * id = "eb582e83-9558-4578-b332-f009308699bd"
 * identifier.system = "http://hospital.example.org/orders"
 * identifier.value = "LABORD-56789"
-* category = $sct#108252007 "Laboratory procedure" 
+* category = $sct#108252007 "Laboratory procedure"
 * status = #active
 * intent = #order
 * authoredOn = "2025-06-29T09:00:00+02:00"
 * occurrenceDateTime = "2025-06-29T10:30:00+02:00"
 * priority = #routine
 * patientInstruction = "Odběr nalačno"
-* subject = Reference(urn:uuid:11af8e2a-3e10-426e-b80f-4c9f9c7de3c9) 
-* insurance = Reference(urn:uuid:8d08dca4-bf95-4b46-bcb4-e5b127aa2e30) 
-* specimen = Reference(urn:uuid:c2987da2-94cb-4a6c-bedf-2cb0e817b7dc) 
+* subject = Reference(urn:uuid:11af8e2a-3e10-426e-b80f-4c9f9c7de3c9)
+* insurance = Reference(urn:uuid:8d08dca4-bf95-4b46-bcb4-e5b127aa2e30)
+* specimen = Reference(urn:uuid:c2987da2-94cb-4a6c-bedf-2cb0e817b7dc)
 * code = $nclp#21102 "Glukóza; plazma"
 * text.status = #generated
 * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Žádanka na stanovení glukózy v plazmě</div>"
 * supportingInfo[0] = Reference(urn:uuid:3e2c9ab5-fe20-4e52-8bf9-3ff7a384c185)
-* reasonCode.coding[reason].system = "http://snomed.info/sct"
-* reasonCode.coding[reason].code = #73211009
-* reasonCode.coding[reason].display = "Diabetes mellitus (disorder)"
+* reasonCode.coding[snomed].system = $sct
+* reasonCode.coding[snomed].version = "http://snomed.info/sct|http://snomed.info/sct/11000279109"
+* reasonCode.coding[snomed].code = #73211009
+* reasonCode.coding[snomed].display = "Diabetes mellitus"
 
 
 Instance: VirelanSpecimen

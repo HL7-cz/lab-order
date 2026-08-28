@@ -1,11 +1,11 @@
 Profile: CZ_ConditionClinicalQuestion
-Parent: CZ_ConditionLab
+Parent: CZ_ConditionCore
 Id: cz-conditionClinicalQuestion
 Title: "Condition: Clinical question (CZ)"
 Description: "Condition for purpose of clinical question in Lab Order for the scope of the Czech national interoperability project."
 
 * identifier
-* subject only Reference(CZ_PatientCore or Group)
+* subject only Reference(CZ_PatientCore) // or Group) TODO: Group is currently not included in Core. Shall we add into core?
 * category from $hl7-condition-category
 * code.text 1..
 * code.coding 0..
